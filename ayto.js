@@ -1,7 +1,9 @@
 $(function() {
     // Use JavaScript workers to avoid breaking the UI
-    var worker = new Worker('worker.js');
-
+    var worker = null;
+    var processing = false;
+    
+    // Given names for person1 and person2, produce indexes into the men and women name list
     function manWoman( person1, person2 ) {
 	var man = -1;
 	var woman = -1;
@@ -16,8 +18,84 @@ $(function() {
 
 	return [man, woman];
     }
+
+    function numberWithCommas(x) {
+	return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     
+    function progress( p ) {
+	$('#progress-bar').attr('aria-valuenow', p );
+	$('#progress-bar').css('width', p + '%' );
+    }
+    
+    // Package the desired scenario from the page into a format suitable for the worker
     function postUpdate() {
+	if (processing) {
+	    worker.terminate();
+	    worker = null;
+	}
+
+	var transition = $('#progress-bar').css( 'transition' );
+	$('#progress-bar').css( 'transition', 'none' );	
+	progress( 0 );
+	
+	if (worker === null) {
+	    worker = new Worker('worker.js');
+	
+	    ////////////////////////////////////////////////////////////////
+	    // Update with new probabilities from the worker
+	    worker.addEventListener('message', function(e) {
+		if ('progress' in e.data) {
+		    $('#progress-bar').css( 'transition', transition );			    
+		    progress( e.data.progress );
+		    return;
+		}
+		
+		if (processing)
+		    processing = false;
+
+		progress( 100 );
+		
+		var data = e.data;
+		
+		var results = data.results;
+		var total = data.total;
+		
+		$('#total-possibilities').text( numberWithCommas(total) );
+		
+		for( var x = 0; x < 10; x++ ) {
+		    for( var y = 0; y < 10; y++ ) {
+			var cell = $('#cell-' + x + '-' + y);
+			if (total == 0) {
+			    cell.text( '0.0%' );
+			    cell.css( 'backgroundColor', 'none' );
+			    cell.attr('title','');
+			} else {
+			    cell.attr('title',results[x][y] + ' scenarios');
+
+			    var percent = (100 * results[x][y] / total);
+			    cell.text( percent.toFixed(1) + "%" );
+
+			    var redness = percent / 100;
+			    var blueness = percent / 100;
+			    var cutoff = 10;
+			    
+			    if (percent > cutoff) {
+				blueness = Math.pow((percent - cutoff) / (100 - cutoff),0.15);
+				redness = 0;
+			    } else {
+				redness = 1.0 - Math.pow((percent) / cutoff,2.0);
+				blueness = 0;				
+			    }
+			    cell.css( 'color', 'rgb(' + (255 * redness).toFixed(0) + ', 0, ' + (255 * blueness).toFixed(0) + ' )' );
+			}
+		    }
+		}
+	    }, false);
+	}
+
+	
+	
 	var forcedMatches = [];
 	var forcedNonmatches = [];
 
@@ -34,6 +112,7 @@ $(function() {
 		forcedNonmatches.push( [man, woman] );
 	});
 
+	// Only enable the reset button if the user hsa made some choices
 	if ((forcedMatches.length == 0) && (forcedNonmatches.length == 0))
 	    $('#reset-button').addClass('disabled');
 	else
@@ -85,12 +164,10 @@ $(function() {
 	constraints['nonmatches'] = forcedNonmatches;
 	constraints['lights'] = lights;
 	constraints['ceremonies'] = ceremonies;
-	
+
+	processing = true;
 	worker.postMessage(constraints);
     }
-
-    //var f = Module._simulate( 0, 0, 0, 0, 0, 0 );
-    //f();
 
     // Populate the table headers
     men.forEach( function(name) {
@@ -128,8 +205,6 @@ $(function() {
 	$('tbody').append( row );
     });
 
-    postUpdate();
-
     ////////////////////////////////////////////////////////////////
     // Setup reset button
     
@@ -161,8 +236,8 @@ $(function() {
     });
 
     // As you slide the slider, hide the "future" episode events
-    $('#slider').on('change', function(e) {
-	var value = e.value.newValue;
+    var updateFromSlider = function(e) {
+    	var value = e.value.newValue;
 
 	$('.truth-booth').addClass( 'dimmed' );
 	$('.match-up').addClass( 'dimmed' );
@@ -175,7 +250,9 @@ $(function() {
 	}
 
 	postUpdate();
-    });
+    };
+  
+    $('#slider').on('change', updateFromSlider );
 
     ////////////////////////////////////////////////////////////////
     // Add truth booths
@@ -239,29 +316,5 @@ $(function() {
 	$('#truth-booth-' + episode).parent().after( container );
     });    
 
-    ////////////////////////////////////////////////////////////////
-    // Update with new probabilities from the worker
-    worker.addEventListener('message', function(e) {
-	var data = e.data;
-
-	var results = data.results;
-	var total = data.total;
-
-	$('#total-possibilities').text( total );	
-	
-	for( var x = 0; x < 10; x++ ) {
-	    for( var y = 0; y < 10; y++ ) {
-		var cell = $('#cell-' + x + '-' + y);
-		if (total == 0) 
-		    cell.text( '0.0%' );
-		else
-		    cell.text( (100 * results[x][y] / total).toFixed(1) + "%" );
-	    }
-	}
-
-
-	
-    }, false);
-
-    
+    updateFromSlider( { value: { newValue: truthBooths.length + matchUps.length } } );
 });
