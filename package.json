@@ -1,0 +1,8 @@
+{
+    "name": "are-you-the-javascript",
+    "description": "explore probabilities for MTV's 'Are you the One?'",
+    "version": "0.0.0",
+    "dependencies": {
+	"bower": "*"
+    }
+}
