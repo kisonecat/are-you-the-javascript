@@ -1,8 +1,3 @@
-importScripts('perms.js');
-
-var simulate=Module.cwrap('simulate','void',['array', 'array', 'number', 'array', 'array', 'number'])
-var countPairings=Module.cwrap('pairings','number',['number', 'number']);
-
 self.addEventListener('message', function(event) {
     "use strict";
     
