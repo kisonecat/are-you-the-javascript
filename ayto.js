@@ -216,9 +216,9 @@ $(function() {
 		postUpdate();
 
 		if (cell.hasClass( 'forced-non-match' ))
-		    _gaq.push(['_trackEvent', man + '/' + woman, 'nonmatch']);
+		    ga('send', 'event', man + '-' + woman, 'nonmatch', '', 0, {'nonInteraction': 1});
 		if (cell.hasClass( 'forced-match' ))
-		    _gaq.push(['_trackEvent', man + '/' + woman, 'match']);				  
+		    ga('send', 'event', man + '-' + woman, 'match', '', 0, {'nonInteraction': 1});		
 	    });
 	});
 	
