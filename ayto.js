@@ -62,17 +62,30 @@ $(function() {
 		var total = data.total;
 		
 		$('#total-possibilities').text( numberWithCommas(total) );
-		
+
+		var xMax = [];
+		for( var x = 0; x < 10; x++ ) {
+		    xMax[x] = Math.max.apply(null, results[x]);
+		}
+
+		var yMax = [];
+		for( var y = 0; y < 10; y++ ) {
+		    yMax[y] = Math.max.apply(null, results.map( function(row) { return row[y] } ));
+		}
+
 		for( var x = 0; x < 10; x++ ) {
 		    for( var y = 0; y < 10; y++ ) {
 			var cell = $('#cell-' + x + '-' + y);
 			if (total == 0) {
 			    cell.text( '0.0%' );
-			    cell.css( 'backgroundColor', 'none' );
+			    //cell.css( 'backgroundColor', 'none' );
 			    cell.attr('title','');
 			} else {
 			    cell.attr('title',results[x][y] + ' scenarios');
 
+			    cell.toggleClass( 'x-max', xMax[x] == results[x][y] );
+			    cell.toggleClass( 'y-max', yMax[y] == results[x][y] );
+			    
 			    var percent = (100 * results[x][y] / total);
 			    cell.text( percent.toFixed(1) + "%" );
 
@@ -91,6 +104,8 @@ $(function() {
 			}
 		    }
 		}
+
+
 	    }, false);
 	}
 
@@ -199,6 +214,11 @@ $(function() {
 		}
 
 		postUpdate();
+
+		if (cell.hasClass( 'forced-non-match' ))
+		    _gaq.push(['_trackEvent', man + '/' + woman, 'nonmatch']);
+		if (cell.hasClass( 'forced-match' ))
+		    _gaq.push(['_trackEvent', man + '/' + woman, 'match']);				  
 	    });
 	});
 	

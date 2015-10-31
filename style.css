@@ -31,3 +31,11 @@ body { padding-top: 70px; }
     padding-bottom: 30px;
     margin-top: 60px;
 }
+
+.x-max {
+    font-weight: bold;
+}
+
+.y-max {
+    font-weight: bold;
+}
