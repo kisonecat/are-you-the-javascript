@@ -1,0 +1,41 @@
+tr td:first-child {
+    font-weight: bold;
+}
+
+td {
+    text-align: right;
+    transition: color 1s ease;
+}
+
+.slider.slider-horizontal {
+    width: 100%;
+}
+
+.dimmed {
+    opacity: 0.2;
+}
+
+.forced-match {
+    background-color: green;
+}
+
+.forced-non-match {
+    background-color: red;
+}
+
+body { padding-top: 70px; }
+
+.footer {
+    border-top: 1px solid #E5E5E5;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 60px;
+}
+
+.x-max {
+    font-weight: bold;
+}
+
+.y-max {
+    font-weight: bold;
+}
