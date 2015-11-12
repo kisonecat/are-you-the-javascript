@@ -10,6 +10,7 @@ var truthBooths =
 	{ 'Connor': {'Chelsey': true } },
 	{ 'Chuck': {'Kiki': false } },
 	{ 'Alec': {'Melanie': false } },
+	{ 'Nelson': {'Kiki': false } },	
     ];
 
 var matchUps = [
@@ -96,6 +97,18 @@ var matchUps = [
 	'Nelson': 'Kiki',
 	'Tyler': 'Cheyenne',
 	'Zak': 'Hannah'
-    }],        
+    }],
+    [3,{
+	'Alec': 'Stacey',
+	'Austin': 'Kiki',
+	'Chuck': 'Amanda',
+	'Connor': 'Chelsey',
+	'Devin': 'Rashida',
+	'Hunter': 'Britni',
+	'Mike': 'Melanie',
+	'Nelson': 'Kayla',
+	'Tyler': 'Cheyenne',
+	'Zak': 'Hannah'
+    }],            
 ];
 
