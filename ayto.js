@@ -60,9 +60,17 @@ $(function() {
 		
 		var results = data.results;
 		var total = data.total;
-		
-		$('#total-possibilities').text( numberWithCommas(total) );
 
+		// Display th number of possibilities with appropriate pluralization
+		$('#total-possibilities').text( numberWithCommas(total) );
+		if (total == 1) {
+		    $('#total-possibilities-plural').css( 'display', 'none' );
+		    $('#total-possibilities-singular').css( 'display', 'inline' );
+		} else {
+		    $('#total-possibilities-plural').css( 'display', 'inline' );
+		    $('#total-possibilities-singular').css( 'display', 'none' );		    
+		}
+		
 		var xMax = [];
 		for( var x = 0; x < 10; x++ ) {
 		    xMax[x] = Math.max.apply(null, results[x]);
