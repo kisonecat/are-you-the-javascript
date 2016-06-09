@@ -1,8 +1,28 @@
-var men = ['Alec','Austin','Chuck','Connor','Devin','Hunter','Mike','Nelson','Tyler','Zak'];
-var women = ['Amanda','Britni','Chelsey','Cheyenne','Hannah','Kayla','Kiki','Melanie','Rashida','Stacey'];
+var men = ['Asaf',
+	   'Cam',
+	   'Cameron',
+	   'Giovanni',
+	   'John',
+	   'Morgan. Pierre',
+	   'Prosper',
+	   'Sam',
+	   'Stephen',
+	   'Tyler'];
+
+var women = ['Alyssa',
+	     'Camille',
+	     'Emma',
+	     'Francesca',
+	     'Julia',
+	     'Kaylen',
+	     'Mikala',
+	     'Nicole',
+	     'Tori',
+	     'Victoria'];
 
 var truthBooths =
-    [
+	[
+	    /*
 	{ 'Hunter': {'Kiki': false } },
 	{ 'Devin': {'Kiki': false } },
 	{ 'Zak':   {'Kiki': false } },
@@ -13,9 +33,11 @@ var truthBooths =
 	{ 'Nelson': {'Kiki': false } },
 	{ 'Hunter': {'Britni': false } },
 	{ 'Zak': {'Kayla': true } },
+	     */
     ];
 
 var matchUps = [
+    /*
     [2, {
 	'Hannah': 'Chuck',
 	'Rashida': 'Tyler',
@@ -136,5 +158,6 @@ var matchUps = [
 	'Tyler': 'Cheyenne',
 	'Zak': 'Kayla'
     }],                    
+     */
 ];
 
