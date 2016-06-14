@@ -38,16 +38,16 @@ var truthBooths =
 
 var matchUps = [
     [3, {
-	'Alyssa ': 'Sam',
-	'Camille ': 'Prosper',
-	'Emma ': 'John',
-	'Francesca ': 'Asaf',
-	'Julia ': 'Morgan',
-	'Kaylen ': 'Giovanni',
-	'Mikala ': 'Cameron',
-	'Nicole ': 'Stephen',
-	'Tori ': 'Tyler',
-	'Victoria ': 'Cam'}
+	'Alyssa': 'Sam',
+	'Camille': 'Prosper',
+	'Emma': 'John',
+	'Francesca': 'Asaf',
+	'Julia': 'Morgan',
+	'Kaylen': 'Giovanni',
+	'Mikala': 'Cameron',
+	'Nicole': 'Stephen',
+	'Tori': 'Tyler',
+	'Victoria': 'Cam'}
     ],
     /*
     [2, {
