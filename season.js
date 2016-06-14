@@ -22,8 +22,8 @@ var women = ['Alyssa',
 
 var truthBooths =
 	[
+	    { 'Prosper': {'Tori': false } },
 	    /*
-	{ 'Hunter': {'Kiki': false } },
 	{ 'Devin': {'Kiki': false } },
 	{ 'Zak':   {'Kiki': false } },
 	{ 'Chuck': {'Britni': false } },
@@ -37,6 +37,17 @@ var truthBooths =
     ];
 
 var matchUps = [
+    [3, {
+	'Alyssa ', 'Sam',
+	'Camille ', 'Prosper',
+	'Emma ', 'John',
+	'Francesca ', 'Asaf',
+	'Julia ', 'Morgan',
+	'Kaylen ', 'Giovanni',
+	'Mikala ', 'Cameron',
+	'Nicole ', 'Stephen',
+	'Tori ', 'Tyler',
+	'Victoria ', 'Cam'],
     /*
     [2, {
 	'Hannah': 'Chuck',
