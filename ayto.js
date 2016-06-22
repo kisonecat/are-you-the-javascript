@@ -116,25 +116,41 @@ $(function() {
 
 	    }, false);
 	}
-
-	
 	
 	var forcedMatches = [];
 	var forcedNonmatches = [];
-
+	var fragments = [];
+	
 	// Add the buttons that the user has clicked
 	$('td.probability').each( function() {
 	    var cell = $(this);
 	    var man = cell.attr('data-man');
 	    var woman = cell.attr('data-woman');
 
-	    if (cell.hasClass('forced-match'))
+	    if (cell.hasClass('forced-match')) {
 		forcedMatches.push( [man, woman] );
-
-	    if (cell.hasClass('forced-non-match'))
+		fragments.push( man + '+' + woman );
+	    }
+	    
+	    if (cell.hasClass('forced-non-match')) {
 		forcedNonmatches.push( [man, woman] );
+		fragments.push( man + '-' + woman );
+	    }
 	});
 
+	// Include the clicked (non)matches in the URL fragment identifier
+	if ((forcedMatches.length == 0) && (forcedNonmatches.length == 0)) {
+	    window.location.hash = '#';
+	    if (history) 
+		history.pushState('', document.title, window.location.pathname);
+	} else if ((forcedMatches.length == 1) && (forcedNonmatches.length == 0))
+	    window.location.hash = '#' + men[forcedMatches[0][0]] + '+' + women[forcedMatches[0][1]];
+	else if ((forcedMatches.length == 0) && (forcedNonmatches.length == 1))
+	    window.location.hash = '#' + men[forcedNonmatches[0][0]] + '-' + women[forcedNonmatches[0][1]];	
+	else {
+	    window.location.hash = '#' + fragments.join(',');
+	}
+	
 	// Only enable the reset button if the user hsa made some choices
 	if ((forcedMatches.length == 0) && (forcedNonmatches.length == 0))
 	    $('#reset-button').addClass('disabled');
@@ -196,7 +212,7 @@ $(function() {
     men.forEach( function(name) {
 	$('thead tr').append( $('<th>' + name + '</th>') );
     });
-
+    
     // Populate the table headers
     women.forEach( function(woman) {
 	var row = $('<tr></tr>');
@@ -209,6 +225,25 @@ $(function() {
 	    cell.attr( 'data-man', men.indexOf(man) );
 	    cell.attr( 'data-woman', women.indexOf(woman) );
 	    row.append( cell );
+
+	    var updateFromHash = function() {
+		var windowHash = '';
+		if (window.location.hash) {
+		    windowHash = window.location.hash.replace('#', '');
+		}
+		
+		if (windowHash.indexOf(man + '+' + woman,"i") >= 0)
+		    cell.addClass('forced-match');
+		if (windowHash.indexOf(man + '-' + woman,"i") >= 0)
+		    cell.addClass('forced-non-match');
+		if (windowHash.indexOf(men.indexOf(man) + '+' + women.indexOf(woman)) >= 0)
+		    cell.addClass('forced-match');
+		if (windowHash.indexOf(men.indexOf(man) + '-' + women.indexOf(woman)) >= 0)
+		    cell.addClass('forced-non-match');
+	    };
+
+	    updateFromHash();
+	    $(window).bind( 'hashchange', updateFromHash );
 	    
 	    cell.click(function(event) {
 		if (cell.hasClass( 'forced-match' )) {
