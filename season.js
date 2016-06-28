@@ -54,6 +54,21 @@ var matchUps = [
       "Stephen": "Tori",
       "Tyler": "Victoria"
     }
+  ],
+  [
+    4,
+    {
+      "Asaf": "Camille",
+      "Cam": "Nicole",
+      "Cameron": "Mikala",
+      "Giovanni": "Kaylen",
+      "John": "Victoria",
+      "Morgan": "Francesca",
+      "Prosper": "Emma",
+      "Sam": "Alyssa",
+      "Stephen": "Tori",
+      "Tyler": "Julia"
+    }
   ]
 ];
 
@@ -66,6 +81,11 @@ var truthBooths = [
   {
     "John": {
       "Julia": false
+    }
+  },
+  {
+    "Cameron": {
+      "Mikala": true
     }
   }
 ];
