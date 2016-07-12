@@ -28,46 +28,97 @@ var matchUps = [
   [
     3,
     {
-      "Asaf": "Francesca",
-      "Cam": "Victoria",
-      "Cameron": "Mikala",
-      "Giovanni": "Kaylen",
-      "John": "Emma",
-      "Morgan": "Julia",
-      "Prosper": "Camille",
-      "Sam": "Alyssa",
-      "Stephen": "Nicole",
-      "Tyler": "Tori"
+      "Alyssa": "Sam",
+      "Camille": "Prosper",
+      "Emma": "John",
+      "Francesca": "Asaf",
+      "Julia": "Morgan",
+      "Kaylen": "Giovanni",
+      "Mikala": "Cameron",
+      "Nicole": "Stephen",
+      "Tori": "Tyler",
+      "Victoria": "Cam"
     }
   ],
   [
     3,
     {
-      "Asaf": "Camille",
-      "Cam": "Julia",
-      "Cameron": "Mikala",
-      "Giovanni": "Kaylen",
-      "John": "Nicole",
-      "Morgan": "Alyssa",
-      "Prosper": "Emma",
-      "Sam": "Francesca",
-      "Stephen": "Tori",
-      "Tyler": "Victoria"
+      "Alyssa": "Morgan",
+      "Camille": "Asaf",
+      "Emma": "Prosper",
+      "Francesca": "Sam",
+      "Julia": "Cam",
+      "Kaylen": "Giovanni",
+      "Mikala": "Cameron",
+      "Nicole": "John",
+      "Tori": "Stephen",
+      "Victoria": "Tyler"
     }
   ],
   [
     4,
     {
-      "Asaf": "Camille",
-      "Cam": "Nicole",
-      "Cameron": "Mikala",
-      "Giovanni": "Kaylen",
-      "John": "Victoria",
-      "Morgan": "Francesca",
-      "Prosper": "Emma",
-      "Sam": "Alyssa",
-      "Stephen": "Tori",
-      "Tyler": "Julia"
+      "Alyssa": "Sam",
+      "Camille": "Asaf",
+      "Emma": "Prosper",
+      "Francesca": "Morgan",
+      "Julia": "Tyler",
+      "Kaylen": "Giovanni",
+      "Mikala": "Cameron",
+      "Nicole": "Cam",
+      "Tori": "Stephen",
+      "Victoria": "John"
+    }
+  ],
+  [
+    4,
+    {
+      "Alyssa": "Sam",
+      "Camille": "Asaf",
+      "Emma": "Cam",
+      "Francesca": "Tyler",
+      "Julia": "Stephen",
+      "Kaylen": "Giovanni",
+      "Mikala": "Cameron",
+      "Nicole": "Prosper",
+      "Tori": "Morgan",
+      "Victoria": "John"
+    }
+  ],
+  [
+    0,
+    {
+      "Mikala": "Cameron"
+    }
+  ],
+  [
+    0,
+    {
+      "Mikala": "Cameron"
+    }
+  ],
+  [
+    0,
+    {
+      "Mikala": "Cameron"
+    }
+  ],
+  [
+    0,
+    {
+      "Mikala": "Cameron"
+    }
+  ],
+  [
+    0,
+    {
+      "Mikala": "Cameron"
+    }
+  ],
+  [
+    0,
+    {
+      "Mikala": "Cameron"
     }
   ]
 ];
@@ -86,6 +137,11 @@ var truthBooths = [
   {
     "Cameron": {
       "Mikala": true
+    }
+  },
+  {
+    "Asaf": {
+      "Tori": false
     }
   }
 ];
