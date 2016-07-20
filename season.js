@@ -86,41 +86,20 @@ var matchUps = [
     }
   ],
   [
-    0,
+    4,
     {
-      "Mikala": "Cameron"
+      "Alyssa": "Sam",
+      "Camille": "Asaf",
+      "Emma": "Cam",
+      "Francesca": "Giovanni",
+      "Julia": "Morgan",
+      "Kaylen": "Tyler",
+      "Mikala": "Cameron",
+      "Nicole": "Stephen",
+      "Tori": "John",
+      "Victoria": "Prosper"
     }
   ],
-  [
-    0,
-    {
-      "Mikala": "Cameron"
-    }
-  ],
-  [
-    0,
-    {
-      "Mikala": "Cameron"
-    }
-  ],
-  [
-    0,
-    {
-      "Mikala": "Cameron"
-    }
-  ],
-  [
-    0,
-    {
-      "Mikala": "Cameron"
-    }
-  ],
-  [
-    0,
-    {
-      "Mikala": "Cameron"
-    }
-  ]
 ];
 
 var truthBooths = [
@@ -142,6 +121,11 @@ var truthBooths = [
   {
     "Asaf": {
       "Tori": false
+    }
+  },
+  {
+    "Giovanni": {
+      "Kaylen": false
     }
   }
 ];
