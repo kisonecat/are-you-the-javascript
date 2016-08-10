@@ -100,6 +100,51 @@ var matchUps = [
       "Victoria": "Prosper"
     }
   ],
+  [
+    4,
+    {
+      "Alyssa": "Sam",
+      "Camille": "Asaf",
+      "Emma": "John",
+      "Francesca": "Giovanni",
+      "Julia": "Stephen",
+      "Kaylen": "Prosper",
+      "Mikala": "Cameron",
+      "Nicole": "Tyler",
+      "Tori": "Morgan",
+      "Victoria": "Cam"
+    }
+  ],
+  [
+    4,
+    {
+      "Alyssa": "Sam",
+      "Camille": "Tyler",
+      "Emma": "Giovanni",
+      "Francesca": "Asaf",
+      "Julia": "Stephen",
+      "Kaylen": "John",
+      "Mikala": "Cameron",
+      "Nicole": "Cam",
+      "Tori": "Morgan",
+      "Victoria": "Prosper"
+    }
+  ],
+  [
+    2,
+    {
+      "Alyssa": "Sam",
+      "Camille": "Asaf",
+      "Emma": "Tyler",
+      "Francesca": "Prosper",
+      "Julia": "Stephen",
+      "Kaylen": "John",
+      "Mikala": "Cameron",
+      "Nicole": "Giovanni",
+      "Tori": "Cam",
+      "Victoria": "Morgan"
+    }
+  ]
 ];
 
 var truthBooths = [
@@ -126,6 +171,21 @@ var truthBooths = [
   {
     "Giovanni": {
       "Kaylen": false
+    }
+  },
+  {
+    "Sam": {
+      "Alyssa": true
+    }
+  },
+  {
+    "Cam": {
+      "Victoria": false
+    }
+  },
+  {
+    "Giovanni": {
+      "Julia": false
     }
   }
 ];
