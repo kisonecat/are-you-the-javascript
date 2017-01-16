@@ -3,7 +3,7 @@ self.addEventListener('message', function(event) {
     
     var constraints = event.data;
 
-    var CARDINALITY = 10;
+    var CARDINALITY = 11;
 
     var total = 0;
 
@@ -25,11 +25,11 @@ self.addEventListener('message', function(event) {
     var ceremonies = new Uint32Array( ceremonies.reduce(function(a, b) { return a.concat(b); }, []) );
     var ceremoniesLength = constraints.ceremonies.length;    
 
-    var FACTORIAL = 10*9*8*7*6*5*4*3*2*1 | 0;
+    var FACTORIAL = 11*10*9*8*7*6*5*4*3*2*1 | 0;
 
-    var permuted = new Int8Array(10);
-    var elements = new Int8Array(10);    
-    var identityPermutation = new Int8Array([0,1,2,3,4,5,6,7,8,9]);
+    var permuted = new Int8Array(CARDINALITY);
+    var elements = new Int8Array(CARDINALITY);    
+    var identityPermutation = new Int8Array([0,1,2,3,4,5,6,7,8,9,10]);
     
     var index;
     var i, j;
@@ -41,8 +41,8 @@ self.addEventListener('message', function(event) {
 	m = p;
 	elements.set( identityPermutation );
 
-	if (p % (9*8*7*6*4*3*1) == 0)
-	    self.postMessage({progress: p / (9*8*7*6*4*3*1)});
+	if (p % (10*9*8*7*6*4*3*1) == 0)
+	    self.postMessage({progress: p / (10*9*8*7*6*4*3*1)});
 	    
 	// Antoine Cormeau's algorithm
 	for( i=0; i<CARDINALITY; ++i ) {
@@ -98,7 +98,9 @@ self.addEventListener('message', function(event) {
 	}
     }
 
-    var results = [[],[],[],[],[],[],[],[],[],[]];
+    // BADBAD: this should be generated from the cardinality
+    var results = [[],[],[],[],[],[],[],[],[],[],[]];
+    
     for( var x = 0; x < CARDINALITY; x++ )
 	for( var y = 0; y < CARDINALITY; y++ )
 	    results[x][y] = counts[x * CARDINALITY + y];

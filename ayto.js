@@ -70,19 +70,21 @@ $(function() {
 		    $('#total-possibilities-plural').css( 'display', 'inline' );
 		    $('#total-possibilities-singular').css( 'display', 'none' );		    
 		}
+
+		var CARDINALITY = 11;
 		
 		var xMax = [];
-		for( var x = 0; x < 10; x++ ) {
+		for( var x = 0; x < CARDINALITY; x++ ) {
 		    xMax[x] = Math.max.apply(null, results[x]);
 		}
 
 		var yMax = [];
-		for( var y = 0; y < 10; y++ ) {
+		for( var y = 0; y < CARDINALITY; y++ ) {
 		    yMax[y] = Math.max.apply(null, results.map( function(row) { return row[y] } ));
 		}
 
-		for( var x = 0; x < 10; x++ ) {
-		    for( var y = 0; y < 10; y++ ) {
+		for( var x = 0; x < CARDINALITY; x++ ) {
+		    for( var y = 0; y < CARDINALITY; y++ ) {
 			var cell = $('#cell-' + x + '-' + y);
 			if (total == 0) {
 			    cell.text( '0.0%' );
