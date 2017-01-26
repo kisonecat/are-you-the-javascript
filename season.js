@@ -58,7 +58,23 @@ var matchUps = [
       "Taylor": "Hayden",
       "Tyranny": "Tyler"
     }
-  ]
+  ],
+  [
+    4,
+    {
+      "Alicia": "Mike",
+      "Carolina": "Hayden",
+      "Casandra": "Jaylan",
+      "Gianna": "Ozzy",
+      "Hannah": "Derrick",
+      "Kam": "Edward",
+      "Kari": "Andre",
+      "Kathryn": "Joey",
+      "Shannon": "Tyler",
+      "Taylor": "Michael",
+      "Tyranny": "Osvaldo"
+    }
+  ],
 ];
 
 var truthBooths = [
@@ -70,6 +86,11 @@ var truthBooths = [
   {
     "Andre": {
       "Alicia": false
+    }
+  },
+  {
+    "Ozzy": {
+      "Carolina": false
     }
   }
 ];
