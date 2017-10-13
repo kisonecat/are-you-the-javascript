@@ -1,96 +1,131 @@
 var men = [
-  "Andre",
-  "Derrick",
-  "Edward",
-  "Hayden",
-  "Jaylan",
-  "Joey",
+  "Anthony",
+  "Clinton",
+  "David",
+  "Dimitri",
+  "Ethan",
+  "Joe",
+  "Kareem",
+  "Keith",
+  "Malcolm",
   "Michael",
-  "Mike",
-  "Osvaldo",
-  "Ozzy",
   "Tyler"
 ];
 
 var women = [
-  "Alicia",
-  "Carolina",
-  "Casandra",
-  "Gianna",
-  "Hannah",
-  "Kam",
-  "Kari",
-  "Kathryn",
-  "Shannon",
-  "Taylor",
-  "Tyranny"
+  "Alexis",
+  "Alivia",
+  "Audrey",
+  "Diandra",
+  "Geles",
+  "Jada",
+  "Keyana",
+  "Nicole",
+  "Nurys",
+  "Uche",
+  "Zoe"
 ];
 
 var matchUps = [
   [
+    3,
+    {
+      "Alexis": "Keith",
+      "Alivia": "Kareem",
+      "Audrey": "David",
+      "Diandra": "Dimitri",
+      "Geles": "Anthony",
+      "Jada": "Ethan",
+      "Keyana": "Michael",
+      "Nicole": "Tyler",
+      "Nurys": "Malcolm",
+      "Uche": "Clinton",
+      "Zoe": "Joe"
+    }
+  ],
+  [
+    1,
+    {
+      "Alexis": "Keith",
+      "Alivia": "Kareem",
+      "Audrey": "Joe",
+      "Diandra": "Anthony",
+      "Geles": "David",
+      "Jada": "Ethan",
+      "Keyana": "Michael",
+      "Nicole": "Dimitri",
+      "Nurys": "Malcolm",
+      "Uche": "Clinton",
+      "Zoe": "Tyler"
+    }
+  ],
+  [
     2,
     {
-      "Alicia": "Andre",
-      "Carolina": "Joey",
-      "Casandra": "Jaylan",
-      "Gianna": "Ozzy",
-      "Hannah": "Michael",
-      "Kam": "Edward",
-      "Kari": "Mike",
-      "Kathryn": "Derrick",
-      "Shannon": "Hayden",
-      "Taylor": "Tyler",
-      "Tyranny": "Osvaldo"
+      "Alexis": "Ethan",
+      "Alivia": "Kareem",
+      "Audrey": "Michael",
+      "Diandra": "Keith",
+      "Geles": "Malcolm",
+      "Jada": "Anthony",
+      "Keyana": "David",
+      "Nicole": "Tyler",
+      "Nurys": "Dimitri",
+      "Uche": "Clinton",
+      "Zoe": "Joe"
     }
   ],
   [
     0,
     {
-      "Alicia": "Derrick",
-      "Carolina": "Joey",
-      "Casandra": "Mike",
-      "Gianna": "Michael",
-      "Hannah": "Andre",
-      "Kam": "Jaylan",
-      "Kari": "Osvaldo",
-      "Kathryn": "Ozzy",
-      "Shannon": "Edward",
-      "Taylor": "Hayden",
-      "Tyranny": "Tyler"
     }
   ],
   [
-    4,
+    0,
     {
-      "Alicia": "Mike",
-      "Carolina": "Hayden",
-      "Casandra": "Jaylan",
-      "Gianna": "Ozzy",
-      "Hannah": "Derrick",
-      "Kam": "Edward",
-      "Kari": "Andre",
-      "Kathryn": "Joey",
-      "Shannon": "Tyler",
-      "Taylor": "Michael",
-      "Tyranny": "Osvaldo"
     }
   ],
+  [
+    0,
+    {
+    }
+  ],
+  [
+    0,
+    {
+    }
+  ],
+  [
+    0,
+    {
+    }
+  ],
+  [
+    0,
+    {
+    }
+  ],
+  [
+    11,
+    {
+    }
+  ]
 ];
 
 var truthBooths = [
   {
-    "Hayden": {
-      "Gianna": false
+    "Ethan": {
+      "Keyana": true
     }
   },
   {
-    "Andre": {
-      "Alicia": false
+    "Anthony": {
+      "Geles": true
     }
   },
   {
-    "Ozzy": {
-      "Carolina": false
+    "Malcolm": {
+      "Nurys": true
     }
   }
 ];
